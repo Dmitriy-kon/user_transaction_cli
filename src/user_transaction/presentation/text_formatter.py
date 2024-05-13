@@ -32,4 +32,37 @@ def format_text_all_transactions(transactions: list[Transaction]):
         print(f"|{str(transaction.amount).center(12)}|{type_.center(22)}|")
     print(size * "-")
     
+
+def format_text_create_user(text: str):
+    color_format = ColorFormat()
     
+    text = f"{text.title()} created"
+    size = len(text) + 4
+    text = color_format.green(f"{text}")
+        
+    print(size * "-")
+    print(f"| {text} |")
+    print(size * "-")
+
+def format_text_add_transaction(text: str):
+    color_format = ColorFormat()
+    
+    text = text.title()
+    size = len(text) + 4
+    text = color_format.green(f"{text}")
+        
+    print(size * "-")
+    print(f"| {text} |")
+    print(size * "-")
+
+
+def format_text_sub_transaction(text: str):
+    color_format = ColorFormat()
+    
+    text = text.title()
+    size = len(text) + 4
+    text = color_format.red(f"{text}")
+        
+    print(size * "-")
+    print(f"| {text} |")
+    print(size * "-")
