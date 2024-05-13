@@ -7,7 +7,6 @@ from adapters.models.models import User
 class UserRepository:
     def __init__(self):
         self.path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        print(self.path)
         
         self.connection = sqlite3.connect(f"{self.path}/adapters/user.db")
 
