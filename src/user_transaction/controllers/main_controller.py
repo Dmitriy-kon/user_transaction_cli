@@ -23,7 +23,7 @@ def init_controllers(args: Namespace):
             user_service = UserService()
             user_service.delete_user(args.username)
             present_delete_user(args.username)
-        except ValueError as e:
+        except ValueError:
             present_delete_user(f"{args.username} not found")
     
     if args.command == "ls":
@@ -37,7 +37,7 @@ def init_controllers(args: Namespace):
                 transaction_service = TransactionService()
                 transaction_service.add_transaction(args.username, args.money, "add")
                 present_add_transaction(args.username, args.money)
-            except ValueError as e:
+            except ValueError:
                 present_add_transaction(f"{args.username} not found", 0)
 
         if args.transaction_command == "sub":
@@ -45,7 +45,7 @@ def init_controllers(args: Namespace):
                 transaction_service = TransactionService()
                 transaction_service.add_transaction(args.username, args.money, "sub")
                 present_sub_transaction(args.username, args.money)
-            except ValueError as e:
+            except ValueError:
                 present_sub_transaction(f"{args.username} not found", 0)
 
         if args.transaction_command == "all":
@@ -53,7 +53,7 @@ def init_controllers(args: Namespace):
                 transaction_service = TransactionService()
                 user_transactions = transaction_service.get_user_transactions(args.username)
                 present_transactions(user_transactions)
-            except ValueError as e:
+            except ValueError:
                 present_transactions([])
         
         if args.transaction_command == "balans":
@@ -61,5 +61,5 @@ def init_controllers(args: Namespace):
                 transaction_service = TransactionService()
                 balans = transaction_service.get_balans_from_transactions(args.username)
                 present_balans(args.username, balans)
-            except ValueError as e:
+            except ValueError:
                 present_balans(f"{args.username} not found", 0)

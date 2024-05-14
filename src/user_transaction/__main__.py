@@ -1,15 +1,11 @@
 import argparse
 
-import os
-
 
 from adapters.sql import create_table, drop_tables
 
 
 from handlers.parsers import init_parsers
 from controllers.main_controller import init_controllers
-
-path = os.path.dirname(os.path.abspath(__file__))
 
 
 def main():
