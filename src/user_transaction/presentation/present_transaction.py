@@ -2,7 +2,10 @@ from .text_formatter import (format_text_no_transactions,
                              format_text_all_transactions,
                              format_text_create_user,
                              format_text_add_transaction,
-                             format_text_sub_transaction
+                             format_text_sub_transaction,
+                             format_balans,
+                             format_all_users,
+                             format_delete_user
                              )
 
 from adapters.models.models import Transaction
@@ -24,5 +27,14 @@ def present_add_transaction(username: str, amount: int):
     format_text_add_transaction(text)
 
 def present_sub_transaction(username: str, amount: int):
-    text = f"{username} sub {amount}"
+    text = f"{username} substracted {amount}"
     format_text_sub_transaction(text)
+
+def present_balans(username: str, balans: int):
+    format_balans(username, balans)
+
+def present_all_users(users: list):
+    format_all_users(users)
+
+def present_delete_user(name: str):
+    format_delete_user(name)

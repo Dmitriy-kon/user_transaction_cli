@@ -31,3 +31,22 @@ class UserService:
 
         self.user_repo.close()
         self.transaction_repo.close()
+    
+    def delete_user(self, name):
+        user = self.user_repo.get_user(name)
+        if not user:
+            raise ValueError("User not found")
+        
+        self.user_repo.delete_user(name)
+        
+        self.user_repo.close()
+        self.transaction_repo.close()
+    
+    def get_all_users(self):
+        users = self.user_repo.get_all_users()
+        if users is None:
+            return None
+        
+        self.user_repo.close()
+        self.transaction_repo.close()
+        return users

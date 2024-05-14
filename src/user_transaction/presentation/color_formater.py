@@ -7,3 +7,6 @@ class ColorFormat:
 
     def green(self, text):
         return f"\033[92m{text}\033[00m"
+    
+    def yellow(self, text):
+        return f"\033[93m{text}\033[00m"

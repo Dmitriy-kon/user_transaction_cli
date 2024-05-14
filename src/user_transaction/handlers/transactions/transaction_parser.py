@@ -3,6 +3,7 @@ import argparse
 from .add_income_transcation import add_income_transcation
 from .add_expense_transcation import add_expense_transcation
 from .get_all_transaction import all_transcation
+from .get_balans import get_balans_transcation
 
 def init_transaction_subparser(parser: argparse.ArgumentParser):
     transaction_parser = parser.add_parser(
@@ -15,4 +16,5 @@ def init_transaction_subparser(parser: argparse.ArgumentParser):
     add_income_transcation(transaction_subparser)
     add_expense_transcation(transaction_subparser)
     all_transcation(transaction_subparser)
+    get_balans_transcation(transaction_subparser)
     

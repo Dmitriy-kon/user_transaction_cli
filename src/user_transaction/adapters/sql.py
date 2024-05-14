@@ -15,7 +15,10 @@ def create_table():
     connection.commit()
 
 
-def drop_tables(connection):
+def drop_tables():
+    path = os.path.dirname(os.path.abspath(__file__))
+    connection = sqlite3.connect(f"{path}/user.db")
+    
     connection.cursor().execute("DROP TABLE transactions;")
     connection.cursor().execute("DROP TABLE users;")
     connection.close()
